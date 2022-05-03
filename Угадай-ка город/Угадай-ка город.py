@@ -6,7 +6,7 @@ from functions.mapapi_PG import return_all
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
-CITIES = ['Москва', 'Токио', 'Нью-Йорк', 'Дубаи', 'Пекин']
+CITIES = ['Каир', 'Буэно-Айрес', 'Нью-Йорк', 'Бостон', 'Бангалор']
 L_VALUES = ['map', 'sat']
 
 
