@@ -3,7 +3,6 @@ from flask import request, jsonify, render_template
 
 from . import db_session
 from .jobs import Jobs
-from .news import News
 
 blueprint = flask.Blueprint('jobs_api', __name__, template_folder='templates')
 

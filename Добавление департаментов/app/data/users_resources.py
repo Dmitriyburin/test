@@ -2,7 +2,6 @@ from flask import jsonify
 from flask_restful import abort, Resource
 
 from . import db_session
-from .news import News
 from .users import User
 from .user_reqparse import parser
 

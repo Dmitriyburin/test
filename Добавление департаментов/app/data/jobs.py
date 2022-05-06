@@ -18,3 +18,7 @@ class Jobs(SqlAlchemyBase, SerializerMixin):
     collaborators = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     start_date = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.datetime.now)
     is_finished = sqlalchemy.Column(sqlalchemy.Boolean, nullable=True)
+
+    categories = orm.relationship("Category",
+                                  secondary="association_table",
+                                  back_populates="jobs")

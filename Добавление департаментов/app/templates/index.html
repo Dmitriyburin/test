@@ -20,6 +20,7 @@
                 <th class="main-th">Team leader</th>
                 <th class="main-th">Duration</th>
                 <th class="main-th">List of collaborators</th>
+                <th class="main-th">Hazard category</th>
                 <th class="main-th">Is finished</th>
             </tr>
             <tr>
@@ -27,6 +28,7 @@
                 <td class="main-td">{{ item.team_lead.name }} {{ item.team_lead.surname }}</td>
                 <td class="main-td">{{ item.work_size }} hours</td>
                 <td class="main-td">{{ item.collaborators }}</td>
+                <td class="main-td">{{ item.categories | join(', ') }}</td>
                 <td class="main-td">Is
                     {% if not item.is_finished: %}
                      not
