@@ -35,15 +35,18 @@ def handle_dialog(res, req):
         return
 
     if req['request']['nlu']['tokens'][0].lower() == 'переведи':
-        res['response']['text'] = translate(
+        print(translate(
             " ".join(req['request']['original_utterance'].split(' ')[1:])
+        ).strip('%'))
+        res['response']['text'] = translate(
+            " ".join(req['request']['original_utterance'].split(' ')[1:]).strip('%')
         )
     else:
         res['response']['text'] = 'Я тебя не поняла. Напиши: "Переведи '\
                                   '%слово или фразу, которое надо перевести%"'
 
 
-def translate(text):
+def translate(text) -> str:
     headers = {
         'X-RapidAPI-Host': 'translated-mymemory---translation-memory.p.rapidapi.com',
         'X-RapidAPI-Key': 'c19aab3253msh3f62a3d03457b98p150e06jsnd6095ccb5862'
@@ -57,7 +60,7 @@ def translate(text):
                     params=params).json()[
         'responseData']['translatedText']
 
-    return translate
+    return translate.strip('%')
 
 
 if __name__ == '__main__':

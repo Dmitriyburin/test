@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="h1-main work-log">Works log</h1>
+
+    {% if current_user.is_authenticated %}
+        <a class='btn btn-primary form' href='/add_job'>Add job</a>
+    {% endif %}
+    
+    {% for item in jobs%}
+    <table class="main-table">
+        <caption>Action # {{ loop.index }}</caption>
+        <tbody>
+            <tr>
+                <th class="main-th">Title of activity</th>
+                <th class="main-th">Team leader</th>
+                <th class="main-th">Duration</th>
+                <th class="main-th">List of collaborators</th>
+                <th class="main-th">Is finished</th>
+            </tr>
+            <tr>
+                <td class="main-td">{{ item.job }}</td>
+                <td class="main-td">{{ item.team_lead.name }} {{ item.team_lead.surname }}</td>
+                <td class="main-td">{{ item.work_size }} hours</td>
+                <td class="main-td">{{ item.collaborators }}</td>
+                <td class="main-td">Is
+                    {% if not item.is_finished: %}
+                     not
+                    {% endif %}
+                     finished
+                </td>
+            </tr>
+        </tbody>
+        
+    </table>
+    {% if current_user.is_authenticated and current_user.id
+        in [1, item.team_leader] %}
+        <div class="flex change-tools">
+            <a class='btn btn-warning' href='/job/{{ item.id }}'>Edit Job</a>
+            <a class='btn btn-danger' href='/delete_job/{{ item.id }}'>Delete Job</a>
+        </div>
+        
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

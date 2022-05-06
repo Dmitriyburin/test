@@ -1,0 +1,78 @@
+h1, h2, h3, h4, p {
+    margin: 0;
+    padding: 0;
+}
+
+caption {
+    color: #000;
+    font-weight: 600;
+    font-size: 35px;
+}
+
+.h1-job {
+    margin-top: 30px;
+}
+
+.h1-main {
+    text-align: center;
+
+}
+
+.h2-main{
+    text-align: center;
+}
+
+.h3-main {
+    margin-left: 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.h4-main {
+    color: #d0559a;
+}
+
+.p-main {
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.change-tools {
+    justify-content: left;
+}
+
+.change-tools>a {
+    margin-top: 10px;
+    margin-right: 5px;
+
+}
+
+.form {
+    margin-top: 30px;
+}
+
+.main-table {
+    margin-top: 30px;
+    caption-side: top;
+    width: 100%;
+}
+
+.main-th {
+    padding: 5px 40px 5px 5px;
+    background-color: #B4B7AE;
+}
+
+.main-td {
+    padding: 5px 40px 5px 5px;
+    background-color: #d2d5ce;
+
+}
+
+.work-log {
+    margin-top: 30px
+}
