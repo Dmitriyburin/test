@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .container-register {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+    .btn-main {
+        margin-top: 10px;
+        width: 100%;
+    }
+    .form-control {
+        height: 30px;
+        margin-bottom: 10px;
+    }
+</style>
+<div class="container container-register">
+    <h1>Авторизация</h1>
+
+    <form action="" method="post" novalidate>
+        <div>
+            {{ form.csrf_token }}
+        </div>
+        {% for field in form if field.name not in ['csrf_token', 'submit']%}
+            <div>
+                {{ field.label() }}
+                {{ field(class='form-control') }}
+                {% for error in field.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        {{ form.submit(class='btn btn-primary btn-main form')}}
+    </form>
+</div>
+{% endblock %}

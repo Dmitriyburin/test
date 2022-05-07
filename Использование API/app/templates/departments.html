@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="h1-main work-log">Works log</h1>
+    <div class="d-flex ali">
+        <a class='btn btn-secondary form' href='/' style="margin-right: 5px;">Back to Jobs</a>
+        {% if current_user.is_authenticated %}
+            <a class='btn btn-primary form' href='/add_department'>Add department</a>
+        {% endif %}
+    </div>
+    
+    
+    {% for item in departments%}
+    <table class="main-table">
+        <caption>Action # {{ loop.index }}</caption>
+        <tbody>
+            <tr>
+                <th class="main-th">Title of department</th>
+                <th class="main-th">Chief</th>
+                <th class="main-th">Members</th>
+                <th class="main-th">Department email</th>
+            </tr>
+            <tr>
+                <td class="main-td">{{ item.title }}</td>
+                <td class="main-td">{{ item.user.name }} {{ item.user.surname }}</td>
+                <td class="main-td">{{ item.members }}</td>
+                <td class="main-td">{{ item.email }}</td>
+                
+            </tr>
+        </tbody>
+        
+    </table>
+    {% if current_user.is_authenticated and current_user.email == item.email %}
+        <div class="flex change-tools">
+            <a class='btn btn-warning' href='/department/{{ item.id }}'>Edit Department</a>
+            <a class='btn btn-danger' href='/delete_department/{{ item.id }}'>Delete Department</a>
+        </div>
+        
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}
