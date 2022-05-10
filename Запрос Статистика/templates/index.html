@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запрос Статистика</title>
+    <style>
+        body {
+            color:rgb(51, 51, 51)
+        }
+        table {
+            border: 1px solid black;
+            margin: 0;
+            padding: 0;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td {
+            margin: 0;
+            padding: 5px;
+            border: 1px solid rgb(77, 75, 75);
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+        }
+        .td-1 {
+            width: 60%;
+            background-color: rgb(170, 77, 155);
+        }
+        .td-2 {
+            width: 40%;
+            background-color: rgb(209, 114, 193);
+        }
+        .td-3 {
+            width: 60%;
+            background-color: rgb(96, 206, 200);
+        }
+        .td-4 {
+            width: 40%;
+            background-color: rgb(73, 206, 195);
+        }
+        .td-5 {
+            width: 100%;
+            background-color: rgb(241, 145, 233);
+        }
+    </style>
+</head>
+<body>
+    <div class="container"><h1>Vk.com Statistics</h1>
+        <table>
+            <h1 style="color: rgb(170, 77, 155); margin-bottom: 10px; text-align: center;">Activities</h1>
+            {% for key, value in activities.items() %}
+                <tr><td class="td-1">{{key}}</td><td class="td-2">{{value}}</td></tr>
+            {% endfor %}
+        </table>
+        <table>
+            <h1 style="color: rgb(65, 195, 204); margin-bottom: 10px; text-align: center;">Ages</h1>
+            {% for key, value in ages.items() %}
+                <tr><td class="td-3">{{key}}</td><td class="td-4">{{value}}</td></tr>
+            {% endfor %}
+        </table>
+        <table>
+            <h1 style="color: rgb(201, 37, 173); margin-bottom: 10px; text-align: center;">Cities</h1>
+            {% for city in cities %}
+                <tr><td class="td-5">{{city}}</td></tr>
+            {% endfor %}
+        </table>
+    
+    
+    </div>
+
+</body>
+</html>
